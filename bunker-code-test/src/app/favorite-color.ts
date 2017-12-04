@@ -1,6 +1,6 @@
 export class FavoriteColor {
 
-    constructor(public firstName: string, public lastName: string, public favoriteColor: string) {
+    constructor(private firstName: string, private lastName: string, private favoriteColor: string) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.favoriteColor = favoriteColor;

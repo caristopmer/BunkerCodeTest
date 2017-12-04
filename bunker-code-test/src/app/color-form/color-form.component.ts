@@ -9,9 +9,9 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 })
 export class ColorFormComponent implements OnInit {
 
-  public favColor: FavoriteColor;
+  private favColor: FavoriteColor;
 
-  constructor(public http: Http) {
+  constructor(private http: Http) {
     this.favColor = new FavoriteColor(null, null, null);
   }
 
