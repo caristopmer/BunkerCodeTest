@@ -29,11 +29,11 @@ export class ColorFormComponent implements OnInit {
     this.http.post(apiUrl, body)
     .subscribe(res => {
       document.getElementById('sentence').innerText = JSON.parse(res['_body'])['data']['summary'] + '!';
-      document.getElementById('response').classList.remove('hidden');
       document.getElementById('response').style.color = JSON.parse(res['_body'])['data']['favoriteColor'];
+      document.getElementById('response').classList.remove('hidden');
     });
-    this.favColor.reset();
     document.getElementById('thanks').classList.remove('hidden');
+    this.favColor.reset();
   };
 
 }
