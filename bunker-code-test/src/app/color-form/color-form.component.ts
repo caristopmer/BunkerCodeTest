@@ -18,12 +18,7 @@ export class ColorFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  showResponse(data) {
-    document.getElementById('#thanks').classList.remove('hidden');
-  }
-
   onSubmit() {
-    console.log(this.favColor);
     let apiUrl = 'https://bunkerdev.azure-api.net/codetest/api/people/add';
     let body = JSON.stringify(this.favColor);
     this.http.post(apiUrl, body)
