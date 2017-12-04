@@ -1,15 +1,19 @@
 <h1>Color Form</h1>
-<div class="form-container">
-  <form (ngSubmit)="onSubmit()">
-    <label for="firstName">First Name:</label>
-    <input [(ngModel)]="favColor.firstName" type="text" name="firstName">
-    <br>
-    <label for="lastName">Last Name:</label>
-    <input [(ngModel)]="favColor.lastName" type="text" name="lastName">
-    <br>
-    <label for="color">Favorite Color:</label>
-    <input [(ngModel)]="favColor.color" type="text" name="color">
-    <br>
-    <input type="submit">
-  </form>
+<form id="color-form" (ngSubmit)="onSubmit()">
+  <label for="firstName">First Name:</label>
+  <input [(ngModel)]="favColor.firstName" type="text" name="firstName">
+  <br><br>
+  <label for="lastName">Last Name:</label>
+  <input [(ngModel)]="favColor.lastName" type="text" name="lastName">
+  <br><br>
+  <label for="color">Favorite Color:</label>
+  <input [(ngModel)]="favColor.favoriteColor" type="text" name="color">
+  <br><br>
+  <input type="submit">
+</form>
+<div id="thanks" class="hidden">
+  <h3>Thanks for submitting!</h3>
+</div>
+<div id="response" class="hidden">
+  <p>Response: <span id="sentence"></span></p>
 </div>

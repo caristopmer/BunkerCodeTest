@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FavoriteColor } from '../favorite-color';
+import { Http, RequestOptions, Headers } from '@angular/http';
 
 @Component({
   selector: 'app-color-form',
@@ -10,17 +11,28 @@ export class ColorFormComponent implements OnInit {
 
   public favColor: FavoriteColor;
 
-  constructor() {
+  constructor(public http: Http) {
     this.favColor = new FavoriteColor(null, null, null);
   }
 
   ngOnInit() {
   }
 
+  showResponse(data) {
+    document.getElementById('#thanks').classList.remove('hidden');
+  }
+
   onSubmit() {
-    console.log('form has been submitted');
     console.log(this.favColor);
+    let apiUrl = 'https://bunkerdev.azure-api.net/codetest/api/people/add';
+    let body = JSON.stringify(this.favColor);
+    this.http.post(apiUrl, body)
+    .subscribe(res => {
+      document.getElementById('sentence').innerText = JSON.parse(res['_body'])['data']['summary'];
+      document.getElementById('response').classList.remove('hidden');
+    });
     this.favColor.reset();
+    document.getElementById('thanks').classList.remove('hidden');
   };
 
 }
