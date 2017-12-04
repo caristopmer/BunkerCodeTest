@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FavoriteColor } from '../favorite-color';
 
 @Component({
   selector: 'app-color-form',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColorFormComponent implements OnInit {
 
-  constructor() { }
+  public favColor: FavoriteColor;
+
+  constructor() {
+    this.favColor = new FavoriteColor(null, null, null);
+  }
 
   ngOnInit() {
   }
+
+  onSubmit() {
+    console.log('form has been submitted');
+    console.log(this.favColor);
+    this.favColor.reset();
+  };
 
 }
