@@ -28,8 +28,9 @@ export class ColorFormComponent implements OnInit {
     let body = JSON.stringify(this.favColor);
     this.http.post(apiUrl, body)
     .subscribe(res => {
-      document.getElementById('sentence').innerText = JSON.parse(res['_body'])['data']['summary'];
+      document.getElementById('sentence').innerText = JSON.parse(res['_body'])['data']['summary'] + '!';
       document.getElementById('response').classList.remove('hidden');
+      document.getElementById('response').style.color = JSON.parse(res['_body'])['data']['favoriteColor'];
     });
     this.favColor.reset();
     document.getElementById('thanks').classList.remove('hidden');
